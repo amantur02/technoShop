@@ -31,7 +31,7 @@ public class ParserOStore {
 
             Element linkElement = table;
             String link0 = linkElement.attr("href");
-            linkList.add(link0);
+            linkList.add(ParserMethod.addString("https://ostore.kg", link0));
         });
         price.forEach(table -> {
             Element priceElement = table;
@@ -41,7 +41,7 @@ public class ParserOStore {
         linkPicture.forEach(table -> {
             Element linkPictureElement = table;
             String linkPicture0 = linkPictureElement.child(0).attr("href");
-            linkPictureList.add(linkPicture0);
+            linkPictureList.add(ParserMethod.addString("http://ostore.kg", linkPicture0));
         });
 
 
