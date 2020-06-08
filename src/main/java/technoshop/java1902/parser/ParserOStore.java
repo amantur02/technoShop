@@ -18,6 +18,7 @@ public class ParserOStore {
         List<String> priceList = new ArrayList<>();
         List<String> linkList = new ArrayList<>();
         List<String> linkPictureList = new ArrayList<>();
+
         Elements getAllTable = document.select("div[class=tabloid]");
 
         Elements name = getAllTable.select("a[class=name]");
@@ -45,9 +46,8 @@ public class ParserOStore {
         });
 
 
-        for (int i = 3; i < nameList.size(); i++) {
-            articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i)));
-        }
+        for (int i = 3; i < nameList.size(); i++)
+            articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
         return articleList;
     }
 }

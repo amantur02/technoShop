@@ -4,11 +4,16 @@ public class Article {
     private String name;
     private String price;
     private String link;
+    private String linkPicture;
 
-    public Article(String name, String price, String link) {
+    public Article() {
+    }
+
+    public Article(String name, String price, String link, String linkPicture) {
         this.name = name;
         this.price = price;
         this.link = link;
+        this.linkPicture = linkPicture;
     }
 
     public String getName() {
@@ -35,12 +40,21 @@ public class Article {
         this.link = link;
     }
 
+    public String getLinkPicture() {
+        return linkPicture;
+    }
+
+    public void setLinkPicture(String linkPicture) {
+        this.linkPicture = linkPicture;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
                 "name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", link='" + link + '\'' +
+                ", linkPicture='" + linkPicture + '\'' +
                 '}';
     }
 }
