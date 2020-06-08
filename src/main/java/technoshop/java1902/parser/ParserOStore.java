@@ -11,8 +11,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ParserOStore {
-    public static synchronized List<Article> getAllDevice(String categoryLink, String nameLink) throws IOException {
-        Document document = Jsoup.connect("https://ostore.kg/" + categoryLink + "/" + nameLink + "/").get();
+    public static synchronized List<Article> getAllDevice(String categoryLink, String brand) throws IOException {
+        Document document = Jsoup.connect("https://ostore.kg/" + categoryLink + "/" + brand + "/").get();
         List<Article> articleList = new LinkedList<>();
         List<String> nameList = new ArrayList<>();
         List<String> priceList = new ArrayList<>();
@@ -46,8 +46,12 @@ public class ParserOStore {
         });
 
 
-        for (int i = 3; i < nameList.size(); i++)
-            articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
+        for (int i = 0; i < nameList.size(); i++) {//это что-бы не было рекламы
+            if (nameList.get(i).contains(brand)) {
+                articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
+            }else
+                continue;
+        }
         return articleList;
     }
 }

@@ -47,8 +47,12 @@ public class SvetoforDeviceParser {
             priceDeviceList.add(price);
         }
 
-        for (int i = 0; i < nameDeviceList.size(); i++)
-            articleList.add(new Article(nameDeviceList.get(i), priceDeviceList.get(i), linkDeviceList.get(i), linkPictureDeviceList.get(i)));
+        for (int i = 0; i < nameDeviceList.size(); i++) {//Это чтобы не было рекламы
+            if (nameDeviceList.get(i).contains(brand)) {
+                articleList.add(new Article(nameDeviceList.get(i), priceDeviceList.get(i), linkDeviceList.get(i), linkPictureDeviceList.get(i)));
+            }else
+                continue;
+        }
         return articleList;
     }
 }
