@@ -16,4 +16,9 @@ public class ParserMethod {
         String example = add + str;
         return example;
     }
+    public static Boolean equalsString(String str, String strInquiry){
+        String example = str.toUpperCase();
+        String example2 = strInquiry.toUpperCase();
+        return example.contains(example2);
+    }
 }

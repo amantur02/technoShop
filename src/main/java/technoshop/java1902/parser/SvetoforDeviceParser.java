@@ -48,7 +48,7 @@ public class SvetoforDeviceParser {
         }
 
         for (int i = 0; i < nameDeviceList.size(); i++) {//Это чтобы не было рекламы
-            if (nameDeviceList.get(i).contains(brand)) {
+            if (ParserMethod.equalsString(nameDeviceList.get(i), brand)) {
                 articleList.add(new Article(nameDeviceList.get(i), priceDeviceList.get(i), linkDeviceList.get(i), linkPictureDeviceList.get(i)));
             }else
                 continue;
