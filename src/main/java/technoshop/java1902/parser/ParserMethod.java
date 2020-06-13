@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 public class ParserMethod {
     public  static Document getAllLink(String link) throws IOException {
@@ -21,4 +22,5 @@ public class ParserMethod {
         String example2 = strInquiry.toUpperCase();
         return example.contains(example2);
     }
+
 }

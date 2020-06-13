@@ -49,8 +49,14 @@ public class ParserOStore {
         for (int i = 0; i < nameList.size(); i++) {//это что-бы не было рекламы
             if (ParserMethod.equalsString(nameList.get(i), brand)) {
                 articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
+            }else if (brand.equalsIgnoreCase("apple")){
+                if (ParserMethod.equalsString(nameList.get(i), "iphone")){
+                    articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
+                }else
+                    continue;
             }else
                 continue;
+
         }
         return articleList;
     }
