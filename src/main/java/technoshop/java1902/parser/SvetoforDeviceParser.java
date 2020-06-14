@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SvetoforDeviceParser {
-    public static synchronized List getAllDeviceLinkSvetofor(String category, String brand) throws IOException {
+    public static synchronized List getAllDeviceSvetofor(String category, String brand) throws IOException {
         List<Article> articleList = new ArrayList<>();
         List<String> nameDeviceList = new ArrayList<>();
         List<String> priceDeviceList = new ArrayList<>();
