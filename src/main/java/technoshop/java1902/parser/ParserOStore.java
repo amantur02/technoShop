@@ -23,7 +23,8 @@ public class ParserOStore {
 
         Elements name = getAllTable.select("a[class=name]");
         Elements price = getAllTable.select("a[class=price]");
-        Elements linkPicture = getAllTable.select("a[class=picture]");
+        Elements linkPicture1 = getAllTable.select("a[class=picture]");
+        Elements linkPicture2 = linkPicture1.select("img[src]");
 
         name.forEach(table -> {
             Element nameElement = table;
@@ -39,19 +40,19 @@ public class ParserOStore {
             String price0 = priceElement.text();
             priceList.add(price0);
         });
-        linkPicture.forEach(table -> {
+        linkPicture2.forEach(table -> {
             Element linkPictureElement = table;
-            String linkPicture0 = linkPictureElement.child(0).attr("href");
+            String linkPicture0 = linkPictureElement.attr("src");
             linkPictureList.add(ParserMethod.addString("http://ostore.kg", linkPicture0));
         });
 
 
         for (int i = 0; i < nameList.size(); i++) {//это что-бы не было рекламы
             if (ParserMethod.equalsString(nameList.get(i), brand)) {
-                articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
+                articleList.add(new Article("O Store",nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
             }else if (brand.equalsIgnoreCase("apple")){
                 if (ParserMethod.equalsString(nameList.get(i), "iphone")){
-                    articleList.add(new Article(nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
+                    articleList.add(new Article("O Store",nameList.get(i), priceList.get(i), linkList.get(i), linkPictureList.get(i)));
                 }else
                     continue;
             }else

@@ -1,12 +1,12 @@
 package technoshop.java1902.parser;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+        import org.jsoup.nodes.Document;
+        import org.jsoup.nodes.Element;
+        import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+        import java.io.IOException;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class SvetoforDeviceParser {
     public static synchronized List getAllDeviceSvetofor(String category, String brand) throws IOException {
@@ -49,7 +49,7 @@ public class SvetoforDeviceParser {
 
         for (int i = 0; i < nameDeviceList.size(); i++) {//Это чтобы не было рекламы
             if (ParserMethod.equalsString(nameDeviceList.get(i), brand)) {
-                articleList.add(new Article(nameDeviceList.get(i), priceDeviceList.get(i), linkDeviceList.get(i), linkPictureDeviceList.get(i)));
+                articleList.add(new Article("Svetofor",nameDeviceList.get(i), priceDeviceList.get(i), linkDeviceList.get(i), linkPictureDeviceList.get(i)));
             }else
                 continue;
         }

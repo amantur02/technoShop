@@ -1,6 +1,7 @@
 package technoshop.java1902.parser;
 
 public class Article {
+    private String nameCompany;
     private String name;
     private String price;
     private String link;
@@ -9,11 +10,20 @@ public class Article {
     public Article() {
     }
 
-    public Article(String name, String price, String link, String linkPicture) {
+    public Article(String nameCompany, String name, String price, String link, String linkPicture) {
+        this.nameCompany = nameCompany;
         this.name = name;
         this.price = price;
         this.link = link;
         this.linkPicture = linkPicture;
+    }
+
+    public String getNameCompany() {
+        return nameCompany;
+    }
+
+    public void setNameCompany(String nameCompany) {
+        this.nameCompany = nameCompany;
     }
 
     public String getName() {
@@ -51,7 +61,8 @@ public class Article {
     @Override
     public String toString() {
         return "Article{" +
-                "name='" + name + '\'' +
+                "nameCompany='" + nameCompany + '\'' +
+                ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", link='" + link + '\'' +
                 ", linkPicture='" + linkPicture + '\'' +

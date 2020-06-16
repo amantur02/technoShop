@@ -22,5 +22,17 @@ public class ParserMethod {
         String example2 = strInquiry.toUpperCase();
         return example.contains(example2);
     }
+    public static String getLinkMP(String device){
+        if (equalsString("samsung",device)){
+            device = "catalog/cell?brn[]=21";
+        }else if (equalsString("xiaomi",device)){
+            device = "catalog/cell?brn[]=77";
+        }else if (equalsString("apple", device)){
+            device = "catalog/cell?brn[]=5";
+        }else
+            device = "catalog/cell?sort%5Bby%5D=price&sort%5Bord%5D=desc&price%5Bmin%5D=&price%5Bmax%5D=";
+        return device;
+        }
+    }
 
-}
+
