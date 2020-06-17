@@ -3,10 +3,7 @@ package technoshop.java1902.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import technoshop.java1902.entity.Seller;
-import technoshop.java1902.parser.Article;
-import technoshop.java1902.parser.MPParser;
-import technoshop.java1902.parser.ParserOStore;
-import technoshop.java1902.parser.SvetoforDeviceParser;
+import technoshop.java1902.parser.*;
 import technoshop.java1902.service.SellerService;
 
 import java.io.IOException;
@@ -22,10 +19,11 @@ public class PhonesController {
         List<List> listList = new ArrayList<>();
         List<Article> oStore = ParserOStore.getAllDevice("phones",brand);
         List<Article> MP = MPParser.getAllDevice(brand);
-
+        List<Article> Sulpak = ParserSulpak.getAllDevice(3,brand);
 //        List Svetofor = SvetoforDeviceParser.getAllDeviceSvetofor("sotovye-telefony-i-aksessuary", brand);
         listList.add(oStore);
         listList.add(MP);
+        listList.add(Sulpak);
 //        listList.add(Svetofor);
         return listList;
     }

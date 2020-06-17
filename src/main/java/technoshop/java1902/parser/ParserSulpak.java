@@ -35,7 +35,7 @@ public class ParserSulpak {
         Elements getName = getAllTable.select("a[class=title]");
         Elements getPrice = getAllTable.select("div[class=price]");
         Elements getPicture = getAllTable.select("div[class=goods-photo]");
-        Elements getAllPicture = getPicture.select("img[src]");
+            Elements getAllPicture = getPicture.select("img[src]");
 
         getName.forEach(table -> {
             Element nameElement = table;
@@ -60,12 +60,18 @@ public class ParserSulpak {
             pictureList.add(picture0);
         });
         for (int j = 0; j < nameList.size(); j++) {
-            if (ParserMethod.equalsString(nameList.get(i), brand)){
-                articleList.add(new Article("Sulpak", nameList.get(i),priceList.get(i), linkList.get(i), pictureList.get(i)));
+            if (ParserMethod.equalsString(nameList.get(j), brand)){
+                articleList.add(new Article("Sulpak", nameList.get(j),priceList.get(j), linkList.get(j), pictureList.get(j)));
             }else
                 continue;
         }
-
         return articleList;
+    }
+    public static List getAllDeviceSulpak (String brand) throws IOException {
+        Integer number = (Integer) getNumberPage().get(0);
+        List<Article> list = null;
+        for (int i = 0; i < number; i++)
+             list = getAllDevice(i,brand);
+        return list;//Тут будет ошибка нужно еще раз проверить
     }
 }
