@@ -23,9 +23,10 @@ public class ParserSulpak {
         return numberList;
     }
 
-    public static synchronized List getAllDevice(List list) throws IOException {
-        Document getPage = Jsoup.connect("https://www.sulpak.kg/f/smartfoniy?page=" + list.get(0)).get();
+    public static synchronized List<Article> getAllDevice(Integer i, String brand) throws IOException {
+        Document getPage = Jsoup.connect("https://www.sulpak.kg/f/smartfoniy?page=" + i).get();
         Elements getAllTable = getPage.select("div[class=goods-tiles]");
+        List<Article> articleList = new ArrayList<>();
         List<String> nameList = new ArrayList<>();
         List<String> linkList = new ArrayList<>();
         List<String> priceList = new ArrayList<>();
@@ -58,7 +59,13 @@ public class ParserSulpak {
 
             pictureList.add(picture0);
         });
+        for (int j = 0; j < nameList.size(); j++) {
+            if (ParserMethod.equalsString(nameList.get(i), brand)){
+                articleList.add(new Article("Sulpak", nameList.get(i),priceList.get(i), linkList.get(i), pictureList.get(i)));
+            }else
+                continue;
+        }
 
-        return pictureList;
+        return articleList;
     }
 }

@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class PhonesController {
     @GetMapping("/{brand}")
     public List getAllPhones(@PathVariable String brand) throws IOException {
-//        return ParserOStore.getAllDevice("phones", brand);
         List<List> listList = new ArrayList<>();
         List<Article> oStore = ParserOStore.getAllDevice("phones",brand);
         List<Article> MP = MPParser.getAllDevice(brand);
+
 //        List Svetofor = SvetoforDeviceParser.getAllDeviceSvetofor("sotovye-telefony-i-aksessuary", brand);
         listList.add(oStore);
         listList.add(MP);
