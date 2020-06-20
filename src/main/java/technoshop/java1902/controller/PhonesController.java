@@ -1,10 +1,7 @@
 package technoshop.java1902.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import technoshop.java1902.entity.Seller;
 import technoshop.java1902.parser.*;
-import technoshop.java1902.service.SellerService;
 
 import java.io.IOException;
 import java.util.ArrayList;

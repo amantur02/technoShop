@@ -56,7 +56,6 @@ public class ParserSulpak {
         getAllPicture.forEach(table ->{
             Element pictureElement = table;
             String picture0 = pictureElement.attr("src");
-
             pictureList.add(picture0);
         });
         for (int j = 0; j < nameList.size(); j++) {
