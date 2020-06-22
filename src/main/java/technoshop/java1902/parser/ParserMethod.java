@@ -33,6 +33,65 @@ public class ParserMethod {
             device = "catalog/cell?sort%5Bby%5D=price&sort%5Bord%5D=desc&price%5Bmin%5D=&price%5Bmax%5D=";
         return device;
         }
+    public static String getLinlSoftech(String brandDevice){
+        String brand;
+        switch (brandDevice){
+            case "apple":
+                brand = "apple-smartphone";
+                break;
+            case "xioami":
+                brand = "xiaomiphones";
+                break;
+            case "oppo":
+                brand = "oppo";
+                break;
+            case "oneplus":
+                brand = "oneplus_phone";
+                break;
+            case "google":
+                brand = "google_brand";
+                break;
+            case "infinix":
+                brand = "infinix-mobile";
+                break;
+            case "samsung":
+                brand = "smartfony-samsung";
+                break;
+            case "huawei":
+                brand = "huawei-phones";
+                break;
+            case "zte":
+                brand = "ztephones";
+                break;
+            case "asus":
+                brand = "asusphones";
+                break;
+            case "meizu":
+                brand = "meizuphones";
+                break;
+            case "lenovo":
+                brand = "lenovophones1";
+                break;
+            case "dooge":
+                brand = "doogeephones";
+                break;
+            case "ULEFONE":
+                brand = "ulefone";
+                break;
+            case "nokia":
+                brand = "nokia-ph";
+                break;
+            case "LEECO":
+                brand = "leeco_phones";
+                break;
+            case "other":
+                brand = "drugie";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + brandDevice);
+        }
+        return brand;
+    }
     }
 
 

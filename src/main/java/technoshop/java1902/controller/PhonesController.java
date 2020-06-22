@@ -17,10 +17,12 @@ public class PhonesController {
         List<Article> oStore = ParserOStore.getAllDevice("phones",brand);
         List<Article> MP = MPParser.getAllDevice(brand);
         List<Article> Sulpak = ParserSulpak.getAllDevice(3,brand);
+        List<Article> Softech = ParserSoftech.getAllPageDeviceSoftech(ParserMethod.getLinlSoftech(brand));
 //        List Svetofor = SvetoforDeviceParser.getAllDeviceSvetofor("sotovye-telefony-i-aksessuary", brand);
         listList.add(oStore);
         listList.add(MP);
         listList.add(Sulpak);
+        listList.add(Softech);
 //        listList.add(Svetofor);
         return listList;
     }
