@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/comments")
-public class CommentsByUser {
+public class CommentsByUserController {
     @Autowired
     private CommentByUserService commentByUserService;
 
