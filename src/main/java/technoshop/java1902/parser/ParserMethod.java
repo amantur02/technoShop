@@ -88,7 +88,7 @@ public class ParserMethod {
                 brand = "drugie";
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + brandDevice);
+                brand = "drugie";
         }
         return brand;
     }

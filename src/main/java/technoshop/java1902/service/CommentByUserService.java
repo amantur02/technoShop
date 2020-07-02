@@ -1,7 +1,7 @@
 package technoshop.java1902.service;
 
 import technoshop.java1902.entity.CommentByUser;
-import technoshop.java1902.entity.User;
+
 
 import java.util.List;
 

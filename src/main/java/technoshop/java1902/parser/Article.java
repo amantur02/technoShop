@@ -60,7 +60,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" +
+        return "Smartphone{" +
                 "nameCompany='" + nameCompany + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +

@@ -16,21 +16,31 @@ public class PhonesController {
         List<List> listList = new ArrayList<>();
         List<Article> oStore = ParserOStore.getAllDevice("phones",brand);
         List<Article> MP = MPParser.getAllDevice(brand);
-        List<Article> Sulpak = ParserSulpak.getAllDevice(3,brand);
+//        List<Article> Sulpak = ParserSulpak.getAllDeviceSulpak(brand);
         List<Article> Softech = ParserSoftech.getAllPageDeviceSoftech(ParserMethod.getLinlSoftech(brand));
-//        List Svetofor = SvetoforDeviceParser.getAllDeviceSvetofor("sotovye-telefony-i-aksessuary", brand);
-        listList.add(oStore);
+//        List Svetofor = SvetoforDeviceP
         listList.add(MP);
-        listList.add(Sulpak);
+        listList.add(oStore);
+//        listList.add(Sulpak);
         listList.add(Softech);
 //        listList.add(Svetofor);
-        return listList;
+        return MP;
     }
 
     @GetMapping("/{brand}/{example}")
     public List getAllPhoneModels(@PathVariable String brand, @PathVariable String example) throws IOException {
-        List<Article> phones = ParserOStore.getAllDevice("phones", brand);
-        return phones.stream().filter(x->x.getName().contains(example)).collect( Collectors.toList());
+
+        List<List<Article>> listList = new ArrayList<>();
+        List<Article> oStore = ParserOStore.getAllDevice("phones",brand);
+        List<Article> MP = MPParser.getAllDevice(brand);
+//        List<Article> Sulpak = ParserSulpak.getAllDevice(3,brand);
+        List<Article> Softech = ParserSoftech.getAllPageDeviceSoftech(ParserMethod.getLinlSoftech(brand));
+//        List Svetofor = SvetoforDeviceP
+        listList.add(MP);
+//        listList.add(Sulpak);
+
+        return listList.stream().map(l->l.stream().filter(x->x.getName().contains(example)).collect( Collectors.toList())).collect(Collectors.toList());
+
     }
 
 }
