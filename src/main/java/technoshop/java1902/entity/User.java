@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Data
 
 @Entity
@@ -21,7 +21,15 @@ public class User {
     private String login;
     @Column(name = "password", nullable = false)
     private String password;
-//    @OneToMany
+
+    public User() {
+    }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+    //    @OneToMany
 //    @JoinColumn(name = "comment_by_user")
 //    private List<CommentByUser> commentsByUser;
 }

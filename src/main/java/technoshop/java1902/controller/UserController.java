@@ -13,8 +13,8 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping
-    public User create (User check){
-        return userService.create(check);
+    public User create (User user){
+        return userService.create(user);
     }
     @DeleteMapping
     public User deleteById(@RequestParam(name = "id") Long id){

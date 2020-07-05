@@ -17,7 +17,7 @@ public class ParserSoftech {
         List<Article> articlesList = new ArrayList<>();
         List<String> nameList = new ArrayList<>();
         List<String> linkList = new ArrayList<>();
-        List<String> priceList = new ArrayList<>();
+        List<Integer> priceList = new ArrayList<>();
         List<String> linkPictureLst = new ArrayList<>();
 
 
@@ -40,7 +40,8 @@ public class ParserSoftech {
         getPrise.forEach(table ->{
             Element priceElement = table;
             String price0 = priceElement.text();
-            priceList.add(price0);
+            Integer num = Integer.parseInt(price0);
+            priceList.add(num);
         });
         getPicture.forEach(table ->{
             Element pictureElement = table;
@@ -48,7 +49,7 @@ public class ParserSoftech {
             linkPictureLst.add(picture0);
         });
 
-        for (int i = 0; i < nameList.size(); i++)
+        for (int i = 0; i < nameList.size() && i+1<linkPictureLst.size() ; i++)
             articlesList.add(new Article("Softech" ,nameList.get(i),priceList.get(i), linkList.get(i),linkPictureLst.get(i+1)));
         return articlesList;
     }

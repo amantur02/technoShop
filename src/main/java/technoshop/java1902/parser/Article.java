@@ -3,14 +3,14 @@ package technoshop.java1902.parser;
 public class Article {
     private String nameCompany;
     private String name;
-    private String price;
+    private Integer price;
     private String link;
     private String linkPicture;
 
     public Article() {
     }
 
-    public Article(String nameCompany, String name, String price, String link, String linkPicture) {
+    public Article(String nameCompany, String name, Integer price, String link, String linkPicture) {
         this.nameCompany = nameCompany;
         this.name = name;
         this.price = price;
@@ -34,11 +34,11 @@ public class Article {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

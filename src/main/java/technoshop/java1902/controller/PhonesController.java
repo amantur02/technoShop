@@ -5,6 +5,8 @@ import technoshop.java1902.parser.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,11 +14,12 @@ import java.util.stream.Collectors;
 @RequestMapping("/phones")
 public class PhonesController {
     @GetMapping("/{brand}")
-    public List getAllPhones(@PathVariable String brand) throws IOException {
+    public Integer getAllPhones(@PathVariable String brand) throws IOException {
         List<List> listList = new ArrayList<>();
+        List<List<Article>> articleList = new ArrayList<>();
         List<Article> oStore = ParserOStore.getAllDevice("phones",brand);
         List<Article> MP = MPParser.getAllDevice(brand);
-//        List<Article> Sulpak = ParserSulpak.getAllDeviceSulpak(brand);
+//        List<Article> Sulpak = ParserSulpak.getAllDevice(3, brand);
         List<Article> Softech = ParserSoftech.getAllPageDeviceSoftech(ParserMethod.getLinlSoftech(brand));
 //        List Svetofor = SvetoforDeviceP
         listList.add(MP);
@@ -24,7 +27,8 @@ public class PhonesController {
 //        listList.add(Sulpak);
         listList.add(Softech);
 //        listList.add(Svetofor);
-        return MP;
+
+        return listList.size();
     }
 
     @GetMapping("/{brand}/{example}")

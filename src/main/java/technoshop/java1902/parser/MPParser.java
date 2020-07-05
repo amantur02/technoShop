@@ -13,7 +13,7 @@ public class MPParser {
     public static synchronized List<Article> getAllDevice(String device) throws IOException {
         List<Article> articleList = new ArrayList<>();
         List<String> nameList = new ArrayList<>();
-        List<String> priceList = new ArrayList<>();
+        List<Integer> priceList = new ArrayList<>();
         List<String> linkList = new ArrayList<>();
         List<String> linkPictureList = new ArrayList<>();
 
@@ -36,7 +36,8 @@ public class MPParser {
             Element name = table;
             String str = name.text();
             String example0 = str + "c";
-            priceList.add(example0);
+            Integer num = Integer.parseInt(example0);
+            priceList.add(num);
         });
         nameAndLink.forEach(table ->{//парсинг ссылки и имени дtвайса
             Element name = table;
@@ -47,7 +48,6 @@ public class MPParser {
             nameList.add(namewf);
         });
         for (int i = 0; i < nameList.size(); i++) {
-//            articleList.add(new Article(nameList.get(i),priceList.get(i),linkList.get(i),linkPictureList.get(i + 7)));
             if (ParserMethod.equalsString(nameList.get(i),device)){
                 articleList.add(new Article("My Phone",nameList.get(i),priceList.get(i),linkList.get(i),linkPictureList.get(i + 7)));
             }else

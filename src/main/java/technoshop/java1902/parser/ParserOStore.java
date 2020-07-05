@@ -15,7 +15,7 @@ public class ParserOStore {
         Document document = Jsoup.connect("https://ostore.kg/" + categoryLink + "/" + brand + "/").get();
         List<Article> articleList = new LinkedList<>();
         List<String> nameList = new ArrayList<>();
-        List<String> priceList = new ArrayList<>();
+        List<Integer> priceList = new ArrayList<>();
         List<String> linkList = new ArrayList<>();
         List<String> linkPictureList = new ArrayList<>();
 
@@ -38,7 +38,8 @@ public class ParserOStore {
         price.forEach(table -> {
             Element priceElement = table;
             String price0 = priceElement.text();
-            priceList.add(price0);
+            Integer num = Integer.parseInt(price0);
+            priceList.add(num);
         });
         linkPicture2.forEach(table -> {
             Element linkPictureElement = table;

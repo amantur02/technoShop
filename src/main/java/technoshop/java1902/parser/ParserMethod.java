@@ -2,9 +2,11 @@ package technoshop.java1902.parser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.w3c.dom.ls.LSInput;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParserMethod {
@@ -92,6 +94,8 @@ public class ParserMethod {
         }
         return brand;
     }
+
+
     }
 
 
