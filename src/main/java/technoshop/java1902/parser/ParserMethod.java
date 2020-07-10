@@ -96,6 +96,20 @@ public class ParserMethod {
     }
 
 
+    public static String removeChar(String string){
+        String example = string.replaceAll("\\s+","");//удаляем пробелы
+
+        while(isNumeric(example) == false){
+            example = example.substring(0, string.length() - 1);//удаляем пока не будет число
+        }
+
+        return example;
+    }
+    public static boolean isNumeric(String strNum) {
+        return strNum.matches("-?\\d+(\\.\\d+)?");//проверяет числовой ли string
+    }
+
+
     }
 
 
