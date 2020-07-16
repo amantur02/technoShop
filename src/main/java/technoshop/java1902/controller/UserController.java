@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping
-    public User create (User user){
+    public User create (@RequestBody User user){
         return userService.create(user);
     }
     @DeleteMapping

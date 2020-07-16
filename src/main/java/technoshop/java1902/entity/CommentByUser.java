@@ -14,10 +14,12 @@ public class CommentByUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name_phones",nullable = false)
+    private String namePhones;
     @Column(name = "text", nullable = false)
     private String text;//текст (комментарий)
-    @Column(name = "likes", nullable = false)
-    private Integer likes;
+//    @Column(name = "likes", nullable = false)
+//    private Integer likes;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

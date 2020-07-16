@@ -3,10 +3,8 @@ package technoshop.java1902;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.telegram.telegrambots.ApiContextInitializer;
-import org.telegram.telegrambots.meta.ApiContext;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
-import technoshop.java1902.jdbc.DbWorker;
 import technoshop.java1902.telegramBot.Bot;
 
 @SpringBootApplication

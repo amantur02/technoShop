@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParserMethod {
-    public  static Document getAllLink(String link) throws IOException {
+    public  static Document getAllLink(String link, Integer time) throws IOException {
         Document document = null;
-        document = Jsoup.parse(new URL(link), 60000);
+        document = Jsoup.parse(new URL(link), time);
         return document;
     }
     public static String addString(String add, String str){
@@ -96,17 +96,19 @@ public class ParserMethod {
     }
 
 
+
     public static String removeChar(String string){
-        String example = string.replaceAll("\\s+","");//удаляем пробелы
-
-        while(isNumeric(example) == false){
-            example = example.substring(0, string.length() - 1);//удаляем пока не будет число
+        String string2 = string.replaceAll("\\s+", "");
+        for (int i = 0; i < string2.length(); i++) {
+            if (isNumeric(string2) == false){
+                string2 = string2.substring(0, string2.length() - 1);
+            }else
+                break;
         }
-
-        return example;
+        return string2;
     }
-    public static boolean isNumeric(String strNum) {
-        return strNum.matches("-?\\d+(\\.\\d+)?");//проверяет числовой ли string
+    public static boolean isNumeric(String str){
+        return str.matches("-?\\d+(\\.\\d+)?");
     }
 
 

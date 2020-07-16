@@ -17,7 +17,7 @@ public class MPParser {
         List<String> linkList = new ArrayList<>();
         List<String> linkPictureList = new ArrayList<>();
 
-        Document document = Jsoup.connect("https://www.myphone.kg/ru/" + ParserMethod.getLinkMP(device)).get();
+        Document document = ParserMethod.getAllLink("https://www.myphone.kg/ru/" + ParserMethod.getLinkMP(device), 8000);
         Elements price = document.select("span[class=price_sp]");
 
         Elements nameAndLinkDevice1 = document.select("div[class=title]");

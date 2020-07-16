@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ParserOStore {
     public static synchronized List getAllDevice(String categoryLink, String brand) throws IOException {
-        Document document = Jsoup.connect("https://ostore.kg/" + categoryLink + "/" + brand + "/").get();
+        Document document = ParserMethod.getAllLink("https://ostore.kg/" + categoryLink + "/" + brand + "/", 8000);
         List<Article> articleList = new LinkedList<>();
         List<String> nameList = new ArrayList<>();
         List<String> priceList = new ArrayList<>();
@@ -45,11 +45,6 @@ public class ParserOStore {
             String linkPicture0 = linkPictureElement.attr("src");
             linkPictureList.add(ParserMethod.addString("http://ostore.kg", linkPicture0));
         });
-
-        int namein = nameList.size();
-        int pricein = priceList.size();
-        int linkin = linkList.size();
-        int linkpin = linkPictureList.size();
 
 
         for (int i = 0; i < nameList.size(); i++) {//это что-бы не было рекламы
